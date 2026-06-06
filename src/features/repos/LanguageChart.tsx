@@ -64,9 +64,9 @@ export default function LanguageChart() {
                   fontSize: '12px',
                   color: '#e2e8f0',
                 }}
-                formatter={(value: number, name: string) => [
-                  `${value} repos (${((value / total) * 100).toFixed(1)}%)`,
-                  name,
+                formatter={(value, name) => [
+                 `${Number(value)} repos (${((Number(value) / total) * 100).toFixed(1)}%)`,
+                    String(name),
                 ]}
               />
             </PieChart>

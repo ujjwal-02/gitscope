@@ -56,7 +56,7 @@ export default function ActivityChart() {
                 fontSize: '12px',
                 color: '#e2e8f0',
               }}
-              formatter={(value: number) => formatNum(value)}
+              formatter={(value) => formatNum(Number(value))}
             />
             <Legend
               wrapperStyle={{ fontSize: '12px', color: '#94a3b8', paddingTop: '12px' }}

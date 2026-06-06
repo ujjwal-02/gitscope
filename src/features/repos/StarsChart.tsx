@@ -59,7 +59,7 @@ export default function StarsChart() {
                 fontSize: '12px',
                 color: '#e2e8f0',
               }}
-              formatter={(value: number) => [formatNum(value) + ' stars', 'Stars']}
+              formatter={(value) => [formatNum(Number(value)) + ' stars', 'Stars']}
             />
             <Bar dataKey="stars" radius={[0, 4, 4, 0]} maxBarSize={20}>
               {data.map((entry) => (
