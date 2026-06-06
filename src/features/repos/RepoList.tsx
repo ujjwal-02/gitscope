@@ -41,33 +41,33 @@ export default function RepoList() {
 
   if (isLoading) {
     return (
-      <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl p-6 animate-pulse h-64" />
+      <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6 animate-pulse h-64" />
     )
   }
 
   const filtered = sortRepos(filterRepos(repos ?? [], filters.type), filters.sort)
 
   return (
-    <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl overflow-hidden">
+    <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl overflow-hidden">
 
       {/* Card Header */}
-      <div className="px-6 py-4 border-b border-[#2a2a3a] flex items-center justify-between">
+      <div className="px-6 py-4 border-b border-[#2a2a2a] flex items-center justify-between">
         <span className="text-sm font-bold">Repositories</span>
-        <span className="text-xs font-mono bg-[#1a1a26] border border-[#2a2a3a] px-3 py-1 rounded-full text-slate-400">
+        <span className="text-xs font-mono bg-[#1c1c1c] border border-[#2a2a2a] px-3 py-1 rounded-full text-slate-400">
           {filtered.length} repos
         </span>
       </div>
 
       {/* Filters row */}
-      <div className="px-6 py-3 border-b border-[#2a2a3a] flex items-center gap-2">
+      <div className="px-6 py-3 border-b border-[#2a2a2a] flex items-center gap-2">
         {FILTER_TYPES.map((type) => (
           <button
             key={type}
             onClick={() => dispatch(setFilters({ type }))}
             className={`text-xs font-bold px-4 py-1.5 rounded-full border transition-all capitalize
               ${filters.type === type
-                ? 'bg-emerald-300 text-black border-emerald-300'
-                : 'border-[#2a2a3a] text-slate-500 hover:text-slate-200 hover:border-slate-500'
+                ? 'bg-amber-500 text-black border-amber-500'
+                : 'border-[#2a2a2a] text-slate-500 hover:text-slate-200 hover:border-slate-500'
               }`}
           >
             {type}
@@ -81,7 +81,7 @@ export default function RepoList() {
             onChange={(e) =>
               dispatch(setFilters({ sort: e.target.value as typeof filters.sort }))
             }
-            className="bg-[#1a1a26] border border-[#2a2a3a] text-slate-300 text-xs rounded-lg px-3 py-1.5 outline-none cursor-pointer"
+            className="bg-[#1c1c1c] border border-[#2a2a2a] text-slate-300 text-xs rounded-lg px-3 py-1.5 outline-none cursor-pointer"
           >
             {SORT_OPTIONS.map((o) => (
               <option key={o.value} value={o.value}>
@@ -93,7 +93,7 @@ export default function RepoList() {
       </div>
 
       {/* Table column headers */}
-      <div className="grid grid-cols-[2fr_80px_80px_80px_110px_100px] gap-3 px-6 py-2.5 border-b border-[#2a2a3a]">
+      <div className="grid grid-cols-[2fr_80px_80px_80px_110px_100px] gap-3 px-6 py-2.5 border-b border-[#2a2a2a]">
         {['Repository', 'Stars', 'Forks', 'Issues', 'Language', 'Updated'].map((h) => (
           <div key={h} className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
             {h}
@@ -111,10 +111,10 @@ export default function RepoList() {
           <div
             key={repo.id}
             onClick={() => navigate(`/repo/${username}/${repo.name}`)}
-            className="grid grid-cols-[2fr_80px_80px_80px_110px_100px] gap-3 px-6 py-3.5 border-b border-[#2a2a3a] hover:bg-[#1a1a26] transition-colors items-center group cursor-pointer"
+            className="grid grid-cols-[2fr_80px_80px_80px_110px_100px] gap-3 px-6 py-3.5 border-b border-[#2a2a2a] hover:bg-[#1c1c1c] transition-colors items-center group cursor-pointer"
           >
             <div>
-              <div className="text-sm font-bold text-indigo-400 group-hover:text-indigo-300 transition-colors">
+              <div className="text-sm font-bold text-amber-400 group-hover:text-indigo-300 transition-colors">
                 {repo.name}
               </div>
               {repo.description && (

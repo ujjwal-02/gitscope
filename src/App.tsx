@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/layout/Sidebar'
 import Header from './components/layout/Header'
@@ -9,10 +10,15 @@ import StarsChart from './features/repos/StarsChart'
 import ActivityChart from './features/repos/ActivityChart'
 import RepoDetail from './pages/RepoDetail'
 import NotFound from './pages/NotFound'
+import Landing from './pages/Landing'
 
 function Dashboard() {
+  const [searched, setSearched] = useState(false)
+
+  if (!searched) return <Landing onSearch={() => setSearched(true)} />
+
   return (
-    <div className="flex min-h-screen bg-[#0a0a0f] text-slate-200">
+    <div className="flex min-h-screen bg-[#0d0d0d] text-[#f8fafc]">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <Header />

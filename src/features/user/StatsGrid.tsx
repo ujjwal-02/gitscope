@@ -13,13 +13,13 @@ interface StatCardProps {
 
 function StatCard({ icon, value, label, change, changeUp, accent }: StatCardProps) {
   return (
-    <div className={`bg-[#111118] border border-[#2a2a3a] rounded-2xl p-5 relative overflow-hidden hover:-translate-y-1 transition-transform cursor-default`}>
+    <div className={`bg-[#141414] border border-[#2a2a2a] rounded-2xl p-5 relative overflow-hidden hover:-translate-y-1 transition-transform cursor-default`}>
       {/* bottom accent line */}
       <div className={`absolute bottom-0 left-0 right-0 h-0.5 ${accent}`} />
       <div className="text-xl mb-3">{icon}</div>
       <div className="text-2xl font-extrabold font-mono">{value}</div>
       <div className="text-[11px] text-slate-500 uppercase tracking-widest mt-1 font-semibold">{label}</div>
-      <div className={`text-[11px] font-mono mt-2 ${changeUp ? 'text-emerald-300' : 'text-red-400'}`}>
+      <div className={`text-[11px] font-mono mt-2 ${changeUp ? 'text-amber-500' : 'text-red-400'}`}>
         {changeUp ? '↑' : '↓'} {change}
       </div>
     </div>
@@ -33,7 +33,7 @@ export default function StatsGrid() {
   if (isLoading) return (
     <div className="grid grid-cols-4 gap-4">
       {[...Array(4)].map((_, i) => (
-        <div key={i} className="bg-[#111118] border border-[#2a2a3a] rounded-2xl p-5 h-32 animate-pulse" />
+        <div key={i} className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-5 h-32 animate-pulse" />
       ))}
     </div>
   )
@@ -50,7 +50,7 @@ export default function StatsGrid() {
       label: 'Total Stars',
       change: '2.4% this month',
       changeUp: true,
-      accent: 'bg-emerald-300',
+      accent: 'bg-amber-500',
     },
     {
       icon: '⑂',
@@ -58,7 +58,7 @@ export default function StatsGrid() {
       label: 'Total Forks',
       change: '1.1% this month',
       changeUp: true,
-      accent: 'bg-indigo-400',
+      accent: 'bg-amber-400',
     },
     {
       icon: '◎',

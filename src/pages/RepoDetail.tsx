@@ -28,8 +28,8 @@ export default function RepoDetail() {
   )
 
   const stats = [
-    { label: 'Stars', value: formatNum(repoData.stargazers_count), icon: '★', color: 'text-emerald-300' },
-    { label: 'Forks', value: formatNum(repoData.forks_count), icon: '⑂', color: 'text-indigo-400' },
+    { label: 'Stars', value: formatNum(repoData.stargazers_count), icon: '★', color: 'text-amber-500' },
+    { label: 'Forks', value: formatNum(repoData.forks_count), icon: '⑂', color: 'text-amber-400' },
     { label: 'Issues', value: formatNum(repoData.open_issues_count), icon: '◎', color: 'text-pink-400' },
     { label: 'Watchers', value: formatNum(repoData.stargazers_count), icon: '◉', color: 'text-amber-400' },
   ]
@@ -38,14 +38,14 @@ export default function RepoDetail() {
     <div className="min-h-screen bg-[#0a0a0f] text-slate-200">
 
       {/* Top bar */}
-      <div className="bg-[#111118] border-b border-[#2a2a3a] px-8 py-4 flex items-center gap-4 sticky top-0 z-10">
+      <div className="bg-[#141414] border-b border-[#2a2a2a] px-8 py-4 flex items-center gap-4 sticky top-0 z-10">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-sm text-slate-400 hover:text-emerald-300 transition-colors font-semibold"
+          className="flex items-center gap-2 text-sm text-slate-400 hover:text-amber-500 transition-colors font-semibold"
         >
           ← Back
         </button>
-        <div className="h-4 w-px bg-[#2a2a3a]" />
+        <div className="h-4 w-px bg-[#2a2a2a]" />
         <span className="text-sm font-mono text-slate-500">{username}</span>
         <span className="text-slate-600">/</span>
         <span className="text-sm font-mono font-bold text-slate-200">{repo}</span>
@@ -53,7 +53,7 @@ export default function RepoDetail() {
           href={repoData.html_url}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto text-xs bg-emerald-300 text-black font-bold px-4 py-2 rounded-lg hover:opacity-80 transition-opacity"
+          className="ml-auto text-xs bg-amber-500 text-black font-bold px-4 py-2 rounded-lg hover:opacity-80 transition-opacity"
         >
           View on GitHub ↗
         </a>
@@ -62,7 +62,7 @@ export default function RepoDetail() {
       <div className="max-w-5xl mx-auto p-8 flex flex-col gap-6">
 
         {/* Repo header */}
-        <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl p-6">
+        <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h1 className="text-2xl font-extrabold">{repoData.name}</h1>
@@ -96,7 +96,7 @@ export default function RepoDetail() {
                 {repoData.topics?.map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-3 py-1 rounded-full bg-indigo-400/10 text-indigo-400 border border-indigo-400/20"
+                    className="text-xs px-3 py-1 rounded-full bg-amber-400/10 text-amber-400 border border-amber-400/20"
                   >
                     {t}
                   </span>
@@ -114,7 +114,7 @@ export default function RepoDetail() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-[#111118] border border-[#2a2a3a] rounded-2xl p-5 text-center hover:-translate-y-1 transition-transform"
+              className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-5 text-center hover:-translate-y-1 transition-transform"
             >
               <div className={`text-2xl font-extrabold font-mono ${s.color}`}>
                 {s.value}
@@ -127,10 +127,10 @@ export default function RepoDetail() {
         </div>
 
         {/* Contributors */}
-        <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#2a2a3a] flex items-center justify-between">
+        <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+          <div className="px-6 py-4 border-b border-[#2a2a2a] flex items-center justify-between">
             <span className="text-sm font-bold">Top Contributors</span>
-            <span className="text-xs font-mono bg-[#1a1a26] border border-[#2a2a3a] px-3 py-1 rounded-full text-slate-400">
+            <span className="text-xs font-mono bg-[#1c1c1c] border border-[#2a2a2a] px-3 py-1 rounded-full text-slate-400">
               top 8
             </span>
           </div>
@@ -138,7 +138,7 @@ export default function RepoDetail() {
           {contribLoading ? (
             <div className="p-6 grid grid-cols-4 gap-4">
               {[...Array(8)].map((_, i) => (
-                <div key={i} className="h-20 bg-[#1a1a26] rounded-xl animate-pulse" />
+                <div key={i} className="h-20 bg-[#1c1c1c] rounded-xl animate-pulse" />
               ))}
             </div>
           ) : (
@@ -149,17 +149,17 @@ export default function RepoDetail() {
                   href={c.html_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl border border-[#2a2a3a] hover:border-emerald-300/30 hover:bg-[#1a1a26] transition-all group"
+                  className="flex flex-col items-center gap-2 p-4 rounded-xl border border-[#2a2a2a] hover:border-amber-500/30 hover:bg-[#1c1c1c] transition-all group"
                 >
                   <img
                     src={c.avatar_url}
                     alt={c.login}
-                    className="w-10 h-10 rounded-full ring-2 ring-transparent group-hover:ring-emerald-300/30 transition-all"
+                    className="w-10 h-10 rounded-full ring-2 ring-transparent group-hover:ring-amber-500/30 transition-all"
                   />
                   <div className="text-xs font-semibold text-center truncate w-full">
                     {c.login}
                   </div>
-                  <div className="text-xs font-mono text-emerald-300">
+                  <div className="text-xs font-mono text-amber-500">
                     {formatNum(c.contributions)} commits
                   </div>
                 </a>

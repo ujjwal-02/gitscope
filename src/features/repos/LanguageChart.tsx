@@ -19,17 +19,17 @@ export default function LanguageChart() {
   const { data: repos, isLoading } = useGetReposByUsernameQuery(username)
 
   if (isLoading) return (
-    <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl p-6 animate-pulse h-72" />
+    <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6 animate-pulse h-72" />
   )
 
   const data = buildLanguageData(repos ?? [])
   const total = data.reduce((s, d) => s + d.value, 0)
 
   return (
-    <div className="bg-[#111118] border border-[#2a2a3a] rounded-2xl overflow-hidden">
-      <div className="px-6 py-4 border-b border-[#2a2a3a] flex items-center justify-between">
+    <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+      <div className="px-6 py-4 border-b border-[#2a2a2a] flex items-center justify-between">
         <span className="text-sm font-bold">Language Breakdown</span>
-        <span className="text-xs font-mono bg-[#1a1a26] border border-[#2a2a3a] px-3 py-1 rounded-full text-slate-400">
+        <span className="text-xs font-mono bg-[#1c1c1c] border border-[#2a2a2a] px-3 py-1 rounded-full text-slate-400">
           by repo count
         </span>
       </div>
@@ -58,8 +58,8 @@ export default function LanguageChart() {
               </Pie>
               <Tooltip
                 contentStyle={{
-                  background: '#1a1a26',
-                  border: '1px solid #2a2a3a',
+                  background: '#1c1c1c',
+                  border: '1px solid #2a2a2a',
                   borderRadius: '8px',
                   fontSize: '12px',
                   color: '#e2e8f0',
@@ -82,7 +82,7 @@ export default function LanguageChart() {
                 style={{ background: getLanguageColor(d.name) }}
               />
               <span className="text-sm font-semibold flex-1">{d.name}</span>
-              <div className="flex-1 h-1.5 bg-[#2a2a3a] rounded-full overflow-hidden">
+              <div className="flex-1 h-1.5 bg-[#2a2a2a] rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full"
                   style={{
